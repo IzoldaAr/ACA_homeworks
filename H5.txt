@@ -1,0 +1,60 @@
+N1
+
+
+a)
+
+function isIsogram(str) {
+    let tempStr = new Set();
+
+    for(let letter of str) {
+        if(tempStr.has(letter)) {
+            return false;
+        }
+         tempStr.add(letter);
+    }
+    return true;
+}
+
+b)
+
+function isIsogram(str) {
+	let lettersArr = str.split('');
+	let isIsogram = true;
+	lettersArr.forEach((letter, idx) => {
+		let miniArr = lettersArr.slice(0, idx);
+		if (miniArr.includes(letter)) {
+			isIsogram = false
+		}
+	});
+return isIsogram;
+}
+
+N2
+
+function isOdd (num) {  
+    if (num == 1) return true;
+    else if (num % 2 == 0) return false
+    else return isOdd(Math.round(num % 2));
+};
+
+N3
+
+function flatten(arr) {
+    return arr.reduce((acc, element) => 
+    acc.concat(Array.isArray(element) ? flatten(element) : element), []);
+};
+
+N4
+
+a)
+
+function sum(numbers) {
+  let numArray = numbers.toString().split('');
+  return numArray.reduce((total, num) =>
+      ((total + num) / 10 <= 0 ? (total + num) : sum(num))
+)
+}
+
+
+
+
